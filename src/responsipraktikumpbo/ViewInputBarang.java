@@ -18,13 +18,13 @@ public class ViewInputBarang extends JFrame{
     JLabel lmassa = new JLabel("Massa(gr)");
     JLabel lharga = new JLabel("Harga Satuan");
     
-    JTextField tfnama = new JTextField();
-    JTextField tfmassa = new JTextField();
-    JTextField tfharga = new JTextField();
+    public JTextField tfnama = new JTextField();
+    public JTextField tfmassa = new JTextField();
+    public JTextField tfharga = new JTextField();
     
-    JButton btnSubmit = new JButton("Submit");
-    JButton btnReset = new JButton("Reset");
-    JButton btnKembali = new JButton("Kembali");
+    public JButton btnSubmit = new JButton("Submit");
+    public JButton btnReset = new JButton("Reset");
+    public JButton btnKembali = new JButton("Kembali");
 
     public ViewInputBarang() {
         setTitle("Main Menu");
@@ -59,6 +59,36 @@ public class ViewInputBarang extends JFrame{
         
         add(btnKembali);
         btnKembali.setBounds(10, 130, 160, 20);
+    }
+
+    public String getTfnama() {
+        String nama = tfnama.getText();
+        return nama;
+    }
+
+    public Double getTfmassa() {
+        if(tfmassa.getText().isEmpty()){
+            double massa = 0;
+            return massa;
+        }
+        else{
+            double massa = Double.parseDouble(tfmassa.getText());
+            return massa;
+        }
+            
+        
+    }
+
+    public Double getTfharga() {
+        if(tfharga.getText().isEmpty()){
+            double harga = 0;
+            return harga;
+        }
+        else{
+            double harga = Double.parseDouble(tfharga.getText());
+            return harga;
+        }
+        
     }
     
     
