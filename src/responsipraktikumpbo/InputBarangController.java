@@ -7,6 +7,7 @@ package responsipraktikumpbo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +27,40 @@ public class InputBarangController {
                 ViewMainMenu viewmainmenu =new ViewMainMenu();
                 viewinputbarang.setVisible(false);
                 MainMenuController Start=new MainMenuController(viewmainmenu);
+            }
+        });
+        
+        viewinputbarang.btnSubmit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if(viewinputbarang.getTfnama().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Nama Tidak Boleh Kosong");
+                }
+                else if(viewinputbarang.getTfharga()==0){
+                    JOptionPane.showMessageDialog(null, "Harga Tidak Boleh Kosong");
+                }
+                else if(viewinputbarang.getTfmassa()==0){
+                    JOptionPane.showMessageDialog(null, "Massa Tidak Boleh Kosong");
+                }
+                else if(viewinputbarang.getTfharga()<0){
+                    JOptionPane.showMessageDialog(null, "Harga Harus Positif");
+                }
+                else if(viewinputbarang.getTfmassa()<0){
+                    JOptionPane.showMessageDialog(null, "Massa Harus Positif");
+                }
+                else{
+                    modelbarang.insertData(viewinputbarang.getTfnama(), viewinputbarang.getTfmassa(), viewinputbarang.getTfharga());
+                }
+                
+            }
+        });
+        
+        viewinputbarang.btnReset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {                               
+                viewinputbarang.tfnama.setText("");
+                viewinputbarang.tfmassa.setText("");
+                viewinputbarang.tfharga.setText("");
             }
         });
     }
