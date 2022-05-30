@@ -27,6 +27,16 @@ public class MainMenuController {
                 InputBarangController inputbarangController=new InputBarangController(inputbarang,modelbarang);
             }
         });
+        
+        viewmainmenu.btnLihat.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) { 
+                ViewLihatBarang lihatbarang= new ViewLihatBarang();
+                ModelBarang modelbarang = new ModelBarang();
+                viewmainmenu.setVisible(false);
+                LihatBarangController lihatbarangController =new LihatBarangController(lihatbarang,modelbarang);
+            }
+        });
     }
     
     
